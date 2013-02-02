@@ -4,6 +4,12 @@
     .row-fluid
       .span2= restaurant.name
       - unless !user_signed_in?
+        %i.icon-thumbs-up
+        %span.likecount
+          #{Preference.find_all_by_like_and_restaurant_id(true,restaurant.id).count}
+        %i.icon-thumbs-down
+        %span.dislikecount
+          #{Preference.find_all_by_like_and_restaurant_id(false,restaurant.id).count}
         = render partial: "preferences_btn_group",
             locals: { restaurant: restaurant }
   %br/
