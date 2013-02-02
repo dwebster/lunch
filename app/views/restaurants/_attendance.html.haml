@@ -3,4 +3,6 @@
 - @users.each do |user|
 	.row-fluid
 		.span2= user.name
-		= check_box_tag "here", user.id
+		%div
+			Here?
+			= check_box_tag "here", user.id
